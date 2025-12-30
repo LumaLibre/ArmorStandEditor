@@ -333,6 +333,7 @@ public class ArmorStandEditorPlugin extends JavaPlugin {
         Objects.requireNonNull(getCommand("ase")).setTabCompleter(execute);
 
         getServer().getPluginManager().registerEvents(editorManager, this);
+        getServer().getPluginManager().registerEvents(new HighlightRemover(), this);
 
     }
 
