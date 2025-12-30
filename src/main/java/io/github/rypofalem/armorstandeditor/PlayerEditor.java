@@ -630,7 +630,7 @@ public class PlayerEditor {
             if (e.isCancelled()) return;
 
             target = targetList.get(targetIndex);
-            highlight(target); //NOTE: If Targeted and Locked, it displays the TEAM Color Glow: RED
+            //highlight(target); //NOTE: If Targeted and Locked, it displays the TEAM Color Glow: RED
             //      Otherwise, its unlocked and will display WHITE as its not in a team by default
 
         }
@@ -703,9 +703,13 @@ public class PlayerEditor {
         sendMessage(path, "info", option);
     }
 
+    // Not all armor stands tick. Manually remove after some time too
     private void highlight(ArmorStand armorStand) {
         armorStand.removePotionEffect(PotionEffectType.GLOWING);
         armorStand.addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, 50, 1, false, false)); //300 Ticks = 15 seconds
+        Scheduler.runTaskLater(plugin, () -> {
+            armorStand.removePotionEffect(PotionEffectType.GLOWING);
+        }, 50);
     }
 
     public PlayerEditorManager getManager() {

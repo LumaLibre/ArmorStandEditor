@@ -30,6 +30,11 @@
     </developers>
 
     <repositories>
+        <!--- Update Checker -->
+        <repository>
+            <id>jsinco-repo-releases</id>
+            <url>https://repo.jsinco.dev/releases/</url>
+        </repository>
         <!-- Spigot MC -->
         <repository>
             <id>paper-repo</id>
@@ -61,11 +66,6 @@
         <repository>
             <id>glaremasters</id>
             <url>https://repo.glaremasters.me/repository/bloodshot/</url>
-        </repository>
-        <!--- Update Checker -->
-        <repository>
-            <id>jeff-media-public</id>
-            <url>https://repo.jeff-media.com/public/</url>
         </repository>
         <!--- Grief Prevention: DEPRECATION - Discuss Keeping or Removing -->
         <repository>
@@ -186,7 +186,7 @@
         </dependency>
         <!--- UpdateChecker -->
         <dependency>
-            <groupId>com.jeff_media</groupId>
+            <groupId>com.jeff_media.updatechecker</groupId>
             <artifactId>SpigotUpdateChecker</artifactId>
             <version>3.0.4</version>
             <scope>compile</scope>
@@ -332,15 +332,17 @@
                 </configuration>
             </plugin>
             <!-- Hangar Publish Support -->
+            <!--
             <plugin>
                 <groupId>io.papermc.hangar</groupId>
                 <artifactId>hangar-publish-plugin</artifactId>
-                <version>1.0.0</version> <!-- replace with latest -->
+                <version>1.0.0</version>
                 <configuration>
                     <apiToken>${hangar.token}</apiToken>
                     <projectId>YourProjectID</projectId>
                 </configuration>
            </plugin>
+            -->
         </plugins>
     </build>
 </project>
